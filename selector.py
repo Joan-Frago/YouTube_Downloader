@@ -1,3 +1,5 @@
+# https://youtu.be/SICEtxAc1i4?si=Dxiqp3KxI-vVZvL6
+
 import audioDownloader
 import videoDownloader
 import os
@@ -15,9 +17,7 @@ def select():
         else:
             print("Not an option")
     except:
-        print("Type the number")
+        print("Type a number")
         select()
-
-    
 
 select()

@@ -1,9 +1,5 @@
-# https://youtu.be/SICEtxAc1i4?si=Dxiqp3KxI-vVZvL6
-
 from pytube import YouTube
 import os
-
-os.system("clear")
 
 def Download(video):
   print("Downloading...")
@@ -24,6 +20,7 @@ def InfoVideo(video):
   ConfirmDownload(video)
 
 def FindVideo():
+  os.system("clear")
   video_url = str(input(("Type in the URL of the video you want to download the audio from: \n --> ")))
   try:
     video = YouTube(video_url)
