@@ -23,7 +23,8 @@ def InfoVideo(video):
   print(f"\n Title \n {video.title} \n\n File Size \n {video.filesize / 1000000} MB")
   ConfirmDownload(video)
 
-def FindVideo(video_url):
+def FindVideo():
+  video_url = str(input(("Type in the URL of the video you want to download: \n --> ")))
   try:
     video = YouTube(video_url)
     video = video.streams.get_highest_resolution()
@@ -32,6 +33,3 @@ def FindVideo(video_url):
     exit()
   
   InfoVideo(video)
-
-video_url = str(input(("Type in the URL of the video you want to download: \n --> ")))
-FindVideo(video_url)
