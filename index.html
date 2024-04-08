@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Downloader</title>
+    <style>
+      button {
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+		<div class="title">
+			<p>
+				<h1>
+					YT DOWNLOADER
+				</h1>
+			</p>
+		</div>
+		<div class="videoURL">
+			<input type="text" id="videourl" name="videourl" />
+			<button type="submit">
+				Submit
+			</button>
+		</div>
+    <div class="selectButtons">
+      <p>
+        Example video URL --> https://youtu.be/SICEtxAc1i4?si=Dxiqp3KxI-vVZvL6
+      </p>
+      <div>
+        <button type="button" onclick="downloadVideo();">Download Video</button>
+      </div>
+      <div>
+        <button type="button" onclick="downloadAudio();">Download Audio</button>
+      </div>
+    </div>
+    <script>
+			const fs = require('fs');
+			const ytdl = require('ytdl-core');
+
+
+
+      function downloadVideo() {
+        // call python's videoDownloader.FindVideo()
+
+        // investigate https://github.com/fent/node-ytdl-core
+
+				ytdl()
+
+        console.log("calling videoDownloader function");
+      }
+
+      function downloadAudio() {
+        // call python's audioDownloader.FindVideo()
+
+        console.log("calling audioDownloader function");
+      }
+    </script>
+  </body>
+</html>
