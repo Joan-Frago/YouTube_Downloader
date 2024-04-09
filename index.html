@@ -21,9 +21,6 @@
 		</div>
 		<div class="videoURL">
 			<input type="text" id="videourl" name="videourl" />
-			<button type="submit">
-				Submit
-			</button>
 		</div>
     <div class="selectButtons">
       <p>
@@ -40,14 +37,14 @@
 			const fs = require('fs');
 			const ytdl = require('ytdl-core');
 
-
+      
 
       function downloadVideo() {
         // call python's videoDownloader.FindVideo()
 
         // investigate https://github.com/fent/node-ytdl-core
 
-				ytdl()
+				console.log(ytdl.videoInfo())
 
         console.log("calling videoDownloader function");
       }
