@@ -11,17 +11,25 @@
       }
     </style>
   </head>
+
   <body>
-		<div class="title">
-			<p>
-				<h1>
-					YT DOWNLOADER
-				</h1>
-			</p>
-		</div>
-		<div class="videoURL">
-			<input type="text" id="videourl" name="videourl" />
-		</div>
+    <div class="title">
+      <h1>YT DOWNLOADER</h1>
+    </div>
+    <div class="url-input">
+      <input
+        type="text"
+        id="videourl"
+        name="videourl"
+        placeholder="Video URL"
+      />
+    </div>
+    <div class="video-information">
+      <p class="video-title"></p>
+      <p class="video-thumbnail"></p>
+      <p class="video-length"></p>
+      <p class="video-size"></p>
+    </div>
     <div class="selectButtons">
       <p>
         Example video URL --> https://youtu.be/SICEtxAc1i4?si=Dxiqp3KxI-vVZvL6
@@ -34,25 +42,25 @@
       </div>
     </div>
     <script>
-			const fs = require('fs');
-			const ytdl = require('ytdl-core');
-
-      
+      const fs = require("fs");
+      const ytdl = require("ytdl-core");
 
       function downloadVideo() {
         // call python's videoDownloader.FindVideo()
 
         // investigate https://github.com/fent/node-ytdl-core
 
-				console.log(ytdl.videoInfo())
+        console.log("trying to download video");
+        console.log(videourl.value); // videourl.value gets the input's value
 
-        console.log("calling videoDownloader function");
+        ytdl(videourl.value).pipe(fs.createWriteStream('video.mp4')); // how it's shown on https://github.com/fent/node-ytdl-core as how it's used, doesn't seem to work though.
       }
 
       function downloadAudio() {
         // call python's audioDownloader.FindVideo()
 
-        console.log("calling audioDownloader function");
+        console.log("trying to download audio");
+        console.log(videourl.value); // videourl.value gets the input's value
       }
     </script>
   </body>
