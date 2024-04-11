@@ -23,6 +23,8 @@
         name="videourl"
         placeholder="Video URL"
       />
+      <button type="button" onclick="urlIsValid()">Check URL</button>
+      <p class="url-status"></p>
     </div>
     <div class="video-information">
       <p class="video-title"></p>
@@ -43,24 +45,41 @@
     </div>
     <script>
       const fs = require("fs");
-      const ytdl = require("ytdl-core");
+      const ytdl = require("ytdl-core"); // ytdl isn't working
+
+      function urlIsValid() {
+        if (ytdl.validateURL(videourl.value === true)) {
+          document.getElementsByClassName("url-status") = "Video URL is valid";
+        }
+        else {
+          document.getElementsByClassName("url-status") = "video URL is not valid";
+        }
+      }
 
       function downloadVideo() {
         // call python's videoDownloader.FindVideo()
+        // or learn ytdl (javascript)
 
         // investigate https://github.com/fent/node-ytdl-core
+
+        
 
         console.log("trying to download video");
         console.log(videourl.value); // videourl.value gets the input's value
 
-        ytdl(videourl.value).pipe(fs.createWriteStream('video.mp4')); // how it's shown on https://github.com/fent/node-ytdl-core as how it's used, doesn't seem to work though.
+        ytdl(videourl.value).pipe(fs.createWriteStream("video.mp4")); // how it's shown on https://github.com/fent/node-ytdl-core as how it's used, doesn't seem to work though.
+        console.log(ytdl.videoInfo(videourl.value));
       }
 
       function downloadAudio() {
         // call python's audioDownloader.FindVideo()
+        // or learn ytdl (javascript)
 
         console.log("trying to download audio");
         console.log(videourl.value); // videourl.value gets the input's value
+
+        ytdl(videourl.value).pipe(fs.createWriteStream("video.mp4")); // has to be as audio only
+        console.log(ytdl.videoInfo(videourl.value));
       }
     </script>
   </body>
