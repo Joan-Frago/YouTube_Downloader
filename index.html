@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <! -- importing pyscript -- >
+    <link
+      rel="stylesheet"
+      href="https://pyscript.net/releases/2024.1.1/core.css"
+    />
+    <script
+      type="module"
+      src="https://pyscript.net/releases/2024.1.1/core.js"
+    ></script>
+
     <title>Youtube Downloader</title>
     <style>
       button {
@@ -37,10 +48,22 @@
         Example video URL --> https://youtu.be/SICEtxAc1i4?si=Dxiqp3KxI-vVZvL6
       </p>
       <div>
-        <button type="button" onclick="downloadVideo();">Download Video</button>
+        <button
+          type="button"
+          py-click="downloadVideo"
+          onclick="downloadVideo();"
+        >
+          Download Video
+        </button>
       </div>
       <div>
-        <button type="button" onclick="downloadAudio();">Download Audio</button>
+        <button
+          type="button"
+          py-click="downloadAudio"
+          onclick="downloadAudio();"
+        >
+          Download Audio
+        </button>
       </div>
     </div>
     <script>
@@ -62,7 +85,7 @@
 
         // investigate https://github.com/fent/node-ytdl-core
 
-        
+
 
         console.log("trying to download video");
         console.log(videourl.value); // videourl.value gets the input's value
@@ -82,5 +105,8 @@
         console.log(ytdl.videoInfo(videourl.value));
       }
     </script>
+    <script type="py" src="./selector.py" config="./pyscript.json"></script>
+    // TO USE PYSCRIPT I SHOULD HAVE EVERYTHING IN MAIN.PY, I THINK IT'S EASIER
+    WITH JS, PLUS I DON'T HAVE TO MESS UP PYTHON VERSIONS ALL THE TIME
   </body>
 </html>
