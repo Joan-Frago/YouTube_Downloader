@@ -3,7 +3,7 @@ import os
 
 def Download(video):
   print("Downloading...")
-  video.download()
+  video.download(output_path = "/Users/joanpersonal/Documents/Personal/Videos/")
   print("Video Downloaded Successfully")
 
 def ConfirmDownload(video):
