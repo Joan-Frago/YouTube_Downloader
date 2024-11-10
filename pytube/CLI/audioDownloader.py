@@ -3,7 +3,7 @@ import os
 
 def Download(video):
   print("Downloading...")
-  video.download(output_path = "/Users/joanpersonal/Documents/Personal/Music/")
+  video.download(output_path = "../output")
   print("Audio Downloaded Successfully")
 
 def ConfirmDownload(video):
@@ -25,8 +25,16 @@ def FindVideo():
   try:
     video = YouTube(video_url)
     video = video.streams.get_audio_only()
-  except:
-    print("URL not valid")
+        
+    if video is None:
+      print("No audio-only stream available for this video.")
+      exit()
+
+  except KeyError:
+    print("Error accessing the video streams. The video might be unavailable or restricted.")
+    exit()
+  except Exception as e:
+    print(f"An error occurred: {e}")
     exit()
   
   InfoVideo(video)

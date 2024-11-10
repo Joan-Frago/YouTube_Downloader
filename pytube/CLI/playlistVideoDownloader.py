@@ -4,14 +4,7 @@ import os
 def Download(playlist):
     print("Downloading...")
     for video in playlist.videos:
-        audio_stream = video.streams.get_audio_only()
-        if audio_stream:
-            try:
-                audio_stream.download(output_path="/Users/joanpersonal/Documents/Personal/YTDownloader/Playlists/")
-            except Exception as e:
-                print(f"Error downloading video: {e}")
-        else:
-            print(f"No audio-only stream available for video: {video.title}")
+        video.streams.get_highest_resolution().download(output_path = "../output")
     print("Playlist Downloaded Successfully")
 
 def ConfirmDownload(playlist):
@@ -23,9 +16,9 @@ def ConfirmDownload(playlist):
     else:
         print("not a correct value, try again")
 
-"""def InfoPlaylist(playlist):
+def InfoPlaylist(playlist):
     print(f"\n Title \n {playlist.title} \n\n File Size \n {playlist.filesize / 1000000} MB")
-    ConfirmDownload(playlist)"""
+    ConfirmDownload(playlist)
 
 def FindPlaylist():
     os.system("clear")
@@ -36,5 +29,4 @@ def FindPlaylist():
         print("URL not valid")
         exit()
   
-    ConfirmDownload(playlist)
-    #InfoPlaylist(playlist)
+    InfoPlaylist(playlist)

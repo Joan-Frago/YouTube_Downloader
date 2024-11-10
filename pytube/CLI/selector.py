@@ -24,4 +24,5 @@ def select():
         print("Not an option")
         select()
 
-select()
+if __name__ == "__main__":
+    select()
