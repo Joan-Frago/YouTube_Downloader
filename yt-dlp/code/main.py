@@ -9,7 +9,7 @@ except Exception as e:
 def Select():
     try:
         option = int(input("What do you want to download?\n 1. Audio (single video)\n 2. Video (single video)\n 3. Audio (playlist)\n 4. Video (playlist)\n\n --> "))
-        if option != 1 or option !=2 or option !=3 or option !=4:
+        if option not in [1, 2, 3, 4]:
             print("Please choose a valid option")
     except Exception as e:
         print("Please answer with a number")
@@ -48,11 +48,13 @@ if __name__ == "__main__":
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
         }],
-        'ignoreerrors': True
+        'ignoreerrors': True,
+        'outtmpl': '../audios/%(title)s.%(ext)s'
     }
     video_opts = {
         'format': 'best',
-        'ignoreerrors': True
+        'ignoreerrors': True,
+        'outtmpl': '../videos/%(title)s.%(ext)s'
     }
 
     # Download based on the option selected
